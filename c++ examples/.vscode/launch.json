@@ -1,0 +1,14 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++: clang++ 활성 파일 빌드",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "program": "${fileDirname}/${fileBasenameNoExtension}/",
+      "preLaunchTask": "C/C++: clang++ 활성 파일 빌드"
+    }
+  ]
+}
