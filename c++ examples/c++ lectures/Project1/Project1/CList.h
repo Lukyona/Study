@@ -198,6 +198,12 @@ void CList<T>::PushFront(const T& data)
     count++;
 }
 
+
+// inline 함수는 컴파일러가 함수를 호출하지 않고 호출되는 곳에 코드를 붙여넣음. 함수 호출 비용 아낌
+// 무조건은 아니고 컴파일러가 알아서 판단함. 함수 호출이 많은데 코드가 긴 경우 인라인이면 비효율적
+// 함수 안에 코드가 상당히 짧지만 호출은 많음. 이 경우에 인라인으로 하면 좋음
+// 템플릿 클래스가 아닌 일반 클래스는 헤더에 함수(set, gee 등 간단한 것)를 구현한다는 것은 인라인 처리하겠다는 의미
+
 template<typename T>
 inline typename CList<T>::iterator CList<T>::begin()
 {
@@ -213,13 +219,34 @@ inline typename CList<T>::iterator CList<T>::end()
 template<typename T>
 inline CList<T>::iterator CList<T>::erase(iterator& iter)
 {
-
-    iter.pNode->pPrev->pNext = iter.pNode->pNext;
-    iter.pNode->pNext->pPrev = iter.pNode->pPrev;
+    if (count == 1 || iter == end()) assert(nullptr);
 
     --count;
 
-    return iterator(this, iter->pNode);
+    if (iter.pNode == pHead)
+    {
+        iter.pNode->pNext->pPrev = nullptr;
+        pHead = iter.pNode->pNext;
+
+        return iterator(this, pHead);
+
+    }
+    else if(iter.pNode == pTail)
+    {
+        iter.pNode->pPrev->pNext = nullptr;
+        pTail = iter.pNode->pPrev;
+
+        return iterator(this, pTail);
+
+    }
+    else
+    {
+        iter.pNode->pPrev->pNext = iter.pNode->pNext;
+        iter.pNode->pNext->pPrev = iter.pNode->pPrev;
+
+        return iterator(this, iter.pNode->pPrev);
+
+    }
 }
 
 template<typename T>

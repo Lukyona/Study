@@ -31,6 +31,7 @@
     <ClCompile Include="LinkedList.cpp">
       <Filter>LinkedList</Filter>
     </ClCompile>
+    <ClCompile Include="main_2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Arr.h">

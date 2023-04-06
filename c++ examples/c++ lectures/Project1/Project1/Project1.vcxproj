@@ -131,7 +131,10 @@
     <ClCompile Include="Arr.cpp" />
     <ClCompile Include="LinkedList.cpp" />
     <ClCompile Include="listMain.cpp" />
-    <ClCompile Include="main.cpp" />
+    <ClCompile Include="main.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="main_2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Arr.h" />

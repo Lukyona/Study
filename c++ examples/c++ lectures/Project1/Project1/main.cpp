@@ -1,8 +1,9 @@
 #include <iostream>
+#include <list>
 #include "Arr.h"
 #include "CArr.h"
 #include "CList.h"
-#include <list>
+
 
 using std::cout, std::endl, std::cin;
 
@@ -29,18 +30,18 @@ int main()
 
 
     //CArr
-    //CArr<int> carr;
-    //carr.PushBack(10);
-    //carr.PushBack(20);
-    //carr.PushBack(30);
+    /*CArr<int> carr;
+    carr.PushBack(10);
+    carr.PushBack(20);
+    carr.PushBack(30);
 
-    //int data = carr[1];
-    //carr[1] = 40;
+    int data = carr[1];
+    carr[1] = 40;
 
-    //carr[2] = 50;
+    carr[2] = 50;
 
-    //cout << carr[2] << endl;
-    
+    cout << carr[2] << endl;
+    */
 
     //CList
    /* CList<int> clist;
@@ -52,69 +53,69 @@ int main()
 
 
     //iterator
-    //CArr<int> myvec;
-    //
-    //myvec.PushBack(1);
-    //myvec.PushBack(2);
-    //myvec.PushBack(3);
-
-    //CArr<int>::iterator myiter = myvec.begin();
-
-
-    //int value = *myiter;
-    //*myiter = 100;
-
-
-    //for (; myiter != myvec.end(); ++myiter)
-    //{
-    //    cout << *myiter << endl;
-    //}
-
-    //myiter = myvec.begin();
-    //int data = *(myiter++); // data = 100
-    //
-    //myiter = myvec.begin();
-    //int data1 = *(++myiter); // data1 = 2
-
-
-    //CArr arr1 = myvec; // 대입 연산자가 아니라 알아서 복사생성자가 호출됨
-
-    //cout << arr1[2] << endl;
+    /*CArr<int> myvec;
     
+    myvec.PushBack(1);
+    myvec.PushBack(2);
+    myvec.PushBack(3);
+
+    CArr<int>::iterator myiter = myvec.begin();
+
+
+    int value = *myiter;
+    *myiter = 100;
+
+
+    for (; myiter != myvec.end(); ++myiter)
+    {
+        cout << *myiter << endl;
+    }
+
+    myiter = myvec.begin();
+    int data = *(myiter++); // data = 100
+    
+    myiter = myvec.begin();
+    int data1 = *(++myiter); // data1 = 2
+
+
+    CArr arr1 = myvec; // 대입 연산자가 아니라 알아서 복사생성자가 호출됨
+
+    cout << arr1[2] << endl;
+    */
 
     //erase
-    //CArr<int> myvec;
-    //
-    //myvec.PushBack(1);
-    //myvec.PushBack(2);
-    //myvec.PushBack(3);
+    /*CArr<int> myvec;
+    
+    myvec.PushBack(1);
+    myvec.PushBack(2);
+    myvec.PushBack(3);
 
-    //CArr<int>::iterator myiter = myvec.begin();
-    //myiter = myvec.erase(++myiter);
+    CArr<int>::iterator myiter = myvec.begin();
+    myiter = myvec.erase(++myiter);
 
-    //for (myiter = myvec.begin(); myiter != myvec.end(); ++myiter)
-    //{
-    //    cout << *myiter << endl;
-    //}
+    for (myiter = myvec.begin(); myiter != myvec.end(); ++myiter)
+    {
+        cout << *myiter << endl;
+    }
 
-    //myvec.clear();
+    myvec.clear();
 
-    //for (int i = 0; i < 10; ++i)
-    //{
-    //    myvec.PushBack(i);
-    //}
+    for (int i = 0; i < 10; ++i)
+    {
+        myvec.PushBack(i);
+    }
 
-    //myiter = myvec.begin();
-    //for (; myiter != myvec.end(); ) // 홀수 제거
-    //{
-    //    if (*myiter == 9) myiter = myvec.erase(myiter);
-    //    else ++myiter;
-    //}
+    myiter = myvec.begin();
+    for (; myiter != myvec.end(); ) // 홀수 제거
+    {
+        if (*myiter == 9) myiter = myvec.erase(myiter);
+        else ++myiter;
+    }
 
-    //for (myiter = myvec.begin(); myiter != myvec.end(); ++myiter)
-    //{
-    //    cout << *myiter << endl;
-    //}
+    for (myiter = myvec.begin(); myiter != myvec.end(); ++myiter)
+    {
+        cout << *myiter << endl;
+    }*/
 
     
     //list iterator
@@ -122,22 +123,41 @@ int main()
 
     mylist.PushBack(100);
     mylist.PushBack(200);
-    mylist.PushBack(300);
+    //mylist.PushBack(300);
 
     CList<int>::iterator listiter = mylist.begin();
-    *listiter = 150;
+    //*listiter = 150;
 
     cout << "list iterator test" << endl;
 
-    listiter = mylist.insert(listiter, 100);
+    //listiter = mylist.insert(listiter, 100);
 
+    listiter = mylist.erase(++listiter);
 
     for (listiter = mylist.begin(); listiter != mylist.end(); ++listiter)
     {
         cout << *listiter << endl;
     }
 
-    list<int> li;
+    // 기본 리스트 테스트
+    std::list<float> list;
+
+    list.push_back(10);
+    list.push_back(20);
+    //list.push_back(30);
+
+    std::list<float>::iterator iter = list.begin();
+
+    //iter = list.insert(iter);
+
+    iter = list.erase(++iter);
+
+    for (iter = list.begin(); iter != list.end(); ++iter)
+    {
+        cout << *iter << endl;
+
+    }
 
     return 0;
+
 }
