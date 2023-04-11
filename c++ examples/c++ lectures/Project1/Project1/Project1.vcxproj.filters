@@ -19,6 +19,9 @@
     <Filter Include="LinkedList">
       <UniqueIdentifier>{7abe2492-7403-48e3-9632-7782bbb59dc8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="BST">
+      <UniqueIdentifier>{4c0a2f7d-8a35-463c-979b-4bcc54d1312e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Arr.cpp">
