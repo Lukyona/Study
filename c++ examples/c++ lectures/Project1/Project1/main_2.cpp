@@ -12,7 +12,7 @@ using std::make_pair;
 using std::set;
 using std::wstring; // wchar_t 타입의 가변배열과 유사
 
-#define MAN 1
+#define MAN 1 // 전처리기 - 컴파일 이전에 먼저 실행
 #define WOMAN 2
 
 struct tStdInfo
@@ -32,6 +32,19 @@ struct tStdInfo
     {
         wcscpy_s(name, pName);
     }
+};
+
+enum MY_TYPE
+{
+    TYPE_1, //0
+    TYPE_2, //1
+    TYPE_3, //2
+};
+
+enum class OTHER_TYPE
+{
+    TYPE_1,
+    TYPE_10
 };
 
 class MyClass
@@ -60,6 +73,11 @@ public:
 
 int main()
 {
+    
+    int a = TYPE_1;
+    int b = (int)OTHER_TYPE::TYPE_1;
+
+
     // 이진탐색 != 이진탐색트리, 이진탐색 자체는 트리가 아니어도 할 수 있음.
     // 단, 정렬된 데이터에만 적용 가능
     // 
