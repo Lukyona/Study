@@ -49,5 +49,8 @@
     <ClInclude Include="CList.h">
       <Filter>LinkedList</Filter>
     </ClInclude>
+    <ClInclude Include="CBST.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

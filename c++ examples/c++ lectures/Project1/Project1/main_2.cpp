@@ -2,6 +2,7 @@
 #include <map>
 #include <set>
 #include <string>
+#include "CBST.h"
 
 using std::cout;
 using std::wcout;
@@ -68,7 +69,7 @@ int main()
     // - 자가균형 기능 필요 (AVL, Red/Black tree)
 
 
-    set<int> setInt;
+    /*set<int> setInt;
 
     setInt.insert(100); //         100
     setInt.insert(50);  //        /     /
@@ -137,7 +138,21 @@ int main()
     map<MyClass, tStdInfo> mapData3;
     MyClass a;
     mapData3.insert(make_pair(a, info)); //  MyClass에 >,<가 const버전으로 정의되어있어야함
+    */
 
+
+    CBST<int, int> bstint;
+
+    tPair<int, int> pair;
+
+    pair.first = 100;
+    bstint.insert(pair);
+
+    pair.first = 150;
+    bstint.insert(pair);
+
+    pair.first = 50;
+    bstint.insert(pair);
 
     return 0;
 }
