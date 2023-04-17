@@ -169,8 +169,13 @@ int main()
     pair.first = 150;
     bstint.insert(pair);
 
-    pair.first = 50;
-    bstint.insert(pair);
+    bstint.insert(make_bstpair(50, 0));
+
+    CBST<int, int>::iterator iter = bstint.begin();
+
+    iter = bstint.find(150);
+
+
 
     return 0;
 }
