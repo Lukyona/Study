@@ -175,6 +175,17 @@ int main()
 
     iter = bstint.find(150);
 
+    (*iter).first;
+    iter->first;
+
+    tPair<int, int>* pPair = &pair;
+    pPair->first;
+    pPair->second;
+
+    for (iter = bstint.begin(); iter != bstint.end(); ++iter)
+    {
+        wcout << iter->first << iter->second << endl;
+    }
 
 
     return 0;
