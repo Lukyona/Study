@@ -1,9 +1,5 @@
-﻿  Course.cpp
-  CourseRoster.cpp
-  Prg11-31.cpp
-  Prg11-42.cpp
-  Register.cpp
-  Student.cpp
-  StudentSchedule.cpp
+﻿  prac1.cpp
+  prac3.cpp
+C:\Users\Luko\Documents\Visual Studio 2022\cpp\Chapter11\Chapter11\prac3.cpp(33,1): error C2512: 'First': 사용할 수 있는 적절한 기본 생성자가 없습니다.
+C:\Users\Luko\Documents\Visual Studio 2022\cpp\Chapter11\Chapter11\prac3.cpp(4,7): message : 'First' 선언을 참조하십시오.
   코드를 생성하고 있습니다...
-  Chapter11.vcxproj -> C:\Users\Luko\Documents\Visual Studio 2022\cpp\Chapter11\x64\Debug\Chapter11.exe

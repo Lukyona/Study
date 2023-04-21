@@ -127,9 +127,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="Circle.h" />
     <ClInclude Include="Course.h" />
     <ClInclude Include="CourseRoster.h" />
     <ClInclude Include="Register.h" />
+    <ClInclude Include="Sphere.h" />
     <ClInclude Include="Student.h" />
     <ClInclude Include="StudentSchedule.h" />
     <ClInclude Include="Tokenizer.h" />
@@ -137,9 +139,14 @@
   <ItemGroup>
     <ClCompile Include="Course.cpp" />
     <ClCompile Include="CourseRoster.cpp" />
+    <ClCompile Include="prac1.cpp" />
+    <ClCompile Include="prac3.cpp" />
     <ClCompile Include="Prg11-31.cpp" />
     <ClCompile Include="Prg11-42.cpp" />
+    <ClCompile Include="pro1.cpp" />
+    <ClCompile Include="pro2.cpp" />
     <ClCompile Include="Register.cpp" />
+    <ClCompile Include="Spere.cpp" />
     <ClCompile Include="Student.cpp" />
     <ClCompile Include="StudentSchedule.cpp" />
     <ClCompile Include="Tokenizer.cpp" />
