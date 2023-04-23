@@ -59,7 +59,7 @@ Cube::Cube()
 
 Cube::Cube(float s)
 {
-    Square(s);
+    Square::Square(s);
 }
 
 Cube::~Cube()

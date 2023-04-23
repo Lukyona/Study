@@ -45,6 +45,18 @@
     <ClInclude Include="Circle.h">
       <Filter>Programming</Filter>
     </ClInclude>
+    <ClInclude Include="Cylinder.h">
+      <Filter>Programming</Filter>
+    </ClInclude>
+    <ClInclude Include="Employee.h">
+      <Filter>Programming</Filter>
+    </ClInclude>
+    <ClInclude Include="Salaried.h">
+      <Filter>Programming</Filter>
+    </ClInclude>
+    <ClInclude Include="Hourly.h">
+      <Filter>Programming</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Tokenizer.cpp">
@@ -84,6 +96,18 @@
       <Filter>Programming</Filter>
     </ClCompile>
     <ClCompile Include="Spere.cpp">
+      <Filter>Programming</Filter>
+    </ClCompile>
+    <ClCompile Include="Cylinder.cpp">
+      <Filter>Programming</Filter>
+    </ClCompile>
+    <ClCompile Include="prac4.cpp">
+      <Filter>Programming</Filter>
+    </ClCompile>
+    <ClCompile Include="Circle.cpp">
+      <Filter>Programming</Filter>
+    </ClCompile>
+    <ClCompile Include="Employee.cpp">
       <Filter>Programming</Filter>
     </ClCompile>
   </ItemGroup>

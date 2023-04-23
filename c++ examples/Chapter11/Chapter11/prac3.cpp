@@ -12,6 +12,7 @@ public:
 };
 
 First::First()
+    :a(0)
 {
 }
 
@@ -41,7 +42,7 @@ Second::Second()
 
 Second::Second(int _a, int _b)
 {
-    First(_a);
+    First::First(_a);
     b = _b;
 }
 
@@ -66,7 +67,7 @@ Third::Third() {}
 Third::Third(int _a, int _b, int _c)
     : c(_c)
 {
-    Second(_a, _b);
+    Second::Second(_a, _b);
 }
 
 void Third::print() const

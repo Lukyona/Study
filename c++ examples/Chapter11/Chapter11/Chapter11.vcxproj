@@ -130,17 +130,29 @@
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Course.h" />
     <ClInclude Include="CourseRoster.h" />
+    <ClInclude Include="Cylinder.h" />
+    <ClInclude Include="Employee.h" />
+    <ClInclude Include="Hourly.h" />
     <ClInclude Include="Register.h" />
+    <ClInclude Include="Salaried.h" />
     <ClInclude Include="Sphere.h" />
     <ClInclude Include="Student.h" />
     <ClInclude Include="StudentSchedule.h" />
     <ClInclude Include="Tokenizer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Circle.cpp" />
     <ClCompile Include="Course.cpp" />
     <ClCompile Include="CourseRoster.cpp" />
-    <ClCompile Include="prac1.cpp" />
-    <ClCompile Include="prac3.cpp" />
+    <ClCompile Include="Cylinder.cpp" />
+    <ClCompile Include="Employee.cpp" />
+    <ClCompile Include="prac1.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="prac3.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="prac4.cpp" />
     <ClCompile Include="Prg11-31.cpp" />
     <ClCompile Include="Prg11-42.cpp" />
     <ClCompile Include="pro1.cpp" />
