@@ -57,6 +57,18 @@
     <ClInclude Include="Hourly.h">
       <Filter>Programming</Filter>
     </ClInclude>
+    <ClInclude Include="Student1.h">
+      <Filter>Programming</Filter>
+    </ClInclude>
+    <ClInclude Include="Course1.h">
+      <Filter>Programming</Filter>
+    </ClInclude>
+    <ClInclude Include="Course2.h">
+      <Filter>Programming</Filter>
+    </ClInclude>
+    <ClInclude Include="Student2.h">
+      <Filter>Programming</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Tokenizer.cpp">
@@ -108,6 +120,21 @@
       <Filter>Programming</Filter>
     </ClCompile>
     <ClCompile Include="Employee.cpp">
+      <Filter>Programming</Filter>
+    </ClCompile>
+    <ClCompile Include="Student1.cpp">
+      <Filter>Practice</Filter>
+    </ClCompile>
+    <ClCompile Include="Course1.cpp">
+      <Filter>Programming</Filter>
+    </ClCompile>
+    <ClCompile Include="Course2.cpp">
+      <Filter>Programming</Filter>
+    </ClCompile>
+    <ClCompile Include="Student2.cpp">
+      <Filter>Programming</Filter>
+    </ClCompile>
+    <ClCompile Include="pro7.cpp">
       <Filter>Programming</Filter>
     </ClCompile>
   </ItemGroup>

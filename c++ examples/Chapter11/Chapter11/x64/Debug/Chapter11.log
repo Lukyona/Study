@@ -1,2 +1,6 @@
-﻿  prac4.cpp
+﻿  Student2.cpp
+C:\Users\Luko\Documents\Visual Studio 2022\cpp\Chapter11\Chapter11\Student2.cpp(27,27): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+C:\Users\Luko\Documents\Visual Studio 2022\cpp\Chapter11\Chapter11\Student2.cpp(43,23): warning C4018: '<': signed 또는 unsigned가 일치하지 않습니다.
+  pro7.cpp
+  코드를 생성하고 있습니다...
   Chapter11.vcxproj -> C:\Users\Luko\Documents\Visual Studio 2022\cpp\Chapter11\x64\Debug\Chapter11.exe

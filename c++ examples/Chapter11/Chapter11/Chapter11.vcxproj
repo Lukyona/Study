@@ -129,6 +129,8 @@
   <ItemGroup>
     <ClInclude Include="Circle.h" />
     <ClInclude Include="Course.h" />
+    <ClInclude Include="Course1.h" />
+    <ClInclude Include="Course2.h" />
     <ClInclude Include="CourseRoster.h" />
     <ClInclude Include="Cylinder.h" />
     <ClInclude Include="Employee.h" />
@@ -137,12 +139,16 @@
     <ClInclude Include="Salaried.h" />
     <ClInclude Include="Sphere.h" />
     <ClInclude Include="Student.h" />
+    <ClInclude Include="Student1.h" />
+    <ClInclude Include="Student2.h" />
     <ClInclude Include="StudentSchedule.h" />
     <ClInclude Include="Tokenizer.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Circle.cpp" />
     <ClCompile Include="Course.cpp" />
+    <ClCompile Include="Course1.cpp" />
+    <ClCompile Include="Course2.cpp" />
     <ClCompile Include="CourseRoster.cpp" />
     <ClCompile Include="Cylinder.cpp" />
     <ClCompile Include="Employee.cpp" />
@@ -157,9 +163,12 @@
     <ClCompile Include="Prg11-42.cpp" />
     <ClCompile Include="pro1.cpp" />
     <ClCompile Include="pro2.cpp" />
+    <ClCompile Include="pro7.cpp" />
     <ClCompile Include="Register.cpp" />
     <ClCompile Include="Spere.cpp" />
     <ClCompile Include="Student.cpp" />
+    <ClCompile Include="Student1.cpp" />
+    <ClCompile Include="Student2.cpp" />
     <ClCompile Include="StudentSchedule.cpp" />
     <ClCompile Include="Tokenizer.cpp" />
   </ItemGroup>
