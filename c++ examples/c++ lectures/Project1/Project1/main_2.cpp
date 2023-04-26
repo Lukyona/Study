@@ -170,12 +170,17 @@ int main()
     bstint.insert(pair);
 
     bstint.insert(make_bstpair(50, 0));
+    bstint.insert(make_bstpair(175, 0));
+    bstint.insert(make_bstpair(75, 0));
+    bstint.insert(make_bstpair(25, 0));
+    bstint.insert(make_bstpair(125, 0));
+
 
     CBST<int, int>::iterator iter = bstint.begin();
 
     iter = bstint.find(150);
 
-    (*iter).first;
+   /* (*iter).first;
     iter->first;
 
     tPair<int, int>* pPair = &pair;
@@ -184,9 +189,21 @@ int main()
 
     for (iter = bstint.begin(); iter != bstint.end(); ++iter)
     {
-        wcout << iter->first << iter->second << endl;
-    }
+        wcout << iter->first << endl;
+    }*/
 
+
+    iter = bstint.erase(iter);
+
+    iter = bstint.find(100);
+    iter = bstint.erase(iter);
+
+
+    for (iter = bstint.begin(); iter != bstint.end(); ++iter)
+    {
+        wcout << iter->first << endl;
+    }
+        
 
     return 0;
 }
