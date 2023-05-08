@@ -13,7 +13,7 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="연습문제">
+    <Filter Include="연습/프로그래밍 문제">
       <UniqueIdentifier>{e293e97e-a313-4b47-be22-b8d3f45df21e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -25,7 +25,54 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="prac2.cpp">
-      <Filter>연습문제</Filter>
+      <Filter>연습/프로그래밍 문제</Filter>
     </ClCompile>
+    <ClCompile Include="SalaryEmployee.cpp">
+      <Filter>연습/프로그래밍 문제</Filter>
+    </ClCompile>
+    <ClCompile Include="HourlyEmployee.cpp">
+      <Filter>연습/프로그래밍 문제</Filter>
+    </ClCompile>
+    <ClCompile Include="pro1.cpp">
+      <Filter>연습/프로그래밍 문제</Filter>
+    </ClCompile>
+    <ClCompile Include="pro2.cpp">
+      <Filter>연습/프로그래밍 문제</Filter>
+    </ClCompile>
+    <ClCompile Include="SalaryEmployee1.cpp">
+      <Filter>연습/프로그래밍 문제</Filter>
+    </ClCompile>
+    <ClCompile Include="HourlyEmployee1.cpp">
+      <Filter>연습/프로그래밍 문제</Filter>
+    </ClCompile>
+    <ClCompile Include="SalaryHourlyEmployee.cpp">
+      <Filter>연습/프로그래밍 문제</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Employee.h">
+      <Filter>연습/프로그래밍 문제</Filter>
+    </ClInclude>
+    <ClInclude Include="SalaryEmployee.h">
+      <Filter>연습/프로그래밍 문제</Filter>
+    </ClInclude>
+    <ClInclude Include="HourlyEmployee.h">
+      <Filter>연습/프로그래밍 문제</Filter>
+    </ClInclude>
+    <ClInclude Include="SalaryType.h">
+      <Filter>연습/프로그래밍 문제</Filter>
+    </ClInclude>
+    <ClInclude Include="HourlyType.h">
+      <Filter>연습/프로그래밍 문제</Filter>
+    </ClInclude>
+    <ClInclude Include="SalaryEmployee1.h">
+      <Filter>연습/프로그래밍 문제</Filter>
+    </ClInclude>
+    <ClInclude Include="HourlyEmployee1.h">
+      <Filter>연습/프로그래밍 문제</Filter>
+    </ClInclude>
+    <ClInclude Include="SalaryHourlyEmployee.h">
+      <Filter>연습/프로그래밍 문제</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -127,13 +127,34 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="prac2.cpp" />
+    <ClCompile Include="HourlyEmployee.cpp" />
+    <ClCompile Include="HourlyEmployee1.cpp" />
+    <ClCompile Include="prac2.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="prg12-1.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="prg12-2.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="pro2.cpp" />
+    <ClCompile Include="SalaryEmployee.cpp" />
+    <ClCompile Include="pro1.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="SalaryEmployee1.cpp" />
+    <ClCompile Include="SalaryHourlyEmployee.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Employee.h" />
+    <ClInclude Include="HourlyEmployee.h" />
+    <ClInclude Include="HourlyEmployee1.h" />
+    <ClInclude Include="HourlyType.h" />
+    <ClInclude Include="SalaryEmployee.h" />
+    <ClInclude Include="SalaryEmployee1.h" />
+    <ClInclude Include="SalaryHourlyEmployee.h" />
+    <ClInclude Include="SalaryType.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
