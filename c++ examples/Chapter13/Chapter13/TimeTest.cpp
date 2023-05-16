@@ -10,4 +10,6 @@ int main()
     time += 1;
 
     cout << time() << endl;
+
+
 }
