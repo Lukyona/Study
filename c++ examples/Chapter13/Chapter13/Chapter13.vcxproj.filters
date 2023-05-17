@@ -30,6 +30,12 @@
     <ClInclude Include="Set.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="Money.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="BigInteger.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="array.cpp">
@@ -57,6 +63,12 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="SetTest.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Money.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="BigInteger.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
