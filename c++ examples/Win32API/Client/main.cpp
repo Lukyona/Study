@@ -109,14 +109,14 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
   /* HWND hWnd = CreateWindowW(szWindowClass, L"hihi", WS_OVERLAPPEDWINDOW,
        CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);*/
    HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
-      CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);
+      CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr); // hWnd -  윈도우 아이디 값, 윈도우 핸들
 
    if (!hWnd)
    {
       return FALSE;
    }
 
-   ShowWindow(hWnd, nCmdShow);
+   ShowWindow(hWnd, nCmdShow); // 두번째 매개변수가 false면 안 보임
    UpdateWindow(hWnd);
 
    return TRUE;
@@ -132,12 +132,12 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //  WM_DESTROY  - 종료 메시지를 게시하고 반환합니다.
 //
 //
-LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)// 첫번째 매개변수 - 윈도우 아이디
 {
     switch (message) 
     {
     case WM_COMMAND:
-        {
+        { // switch case 내부에서 지역변수 선언할 때는 대괄호 필요
             int wmId = LOWORD(wParam);
             // 메뉴 선택을 구문 분석합니다:
             switch (wmId)
@@ -153,16 +153,39 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             }
         }
         break;
-    case WM_PAINT:
+    case WM_PAINT: // 무효화(Invalidate) 영역이 발생한 경우, 예: 창을 최소화했다가 다시 켤 때
         {
             PAINTSTRUCT ps;
-            HDC hdc = BeginPaint(hWnd, &ps);
+            HDC hdc = BeginPaint(hWnd, &ps); // hdc - (만들어진 Device Context(커널 오브젝트)) 아이디값, h는 핸들을 뜻함
+            // HPEN, HBRUSH 등 다 정수타입 아이디값을 가진 이름만 다른 구조체일 뿐
+            // DC의 목적지는 hWnd
+            // DC의 펜은 기본펜(검정), 기본브러쉬(하양)
+            // 
             // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
+
+            HPEN hRedPen = CreatePen(PS_SOLID, 1, RGB(255, 0, 0));
+            HBRUSH hGreenBrush = CreateSolidBrush(RGB(0, 255, 0));
+
+            SelectObject(hdc, hRedPen);
+            SelectObject(hdc, hGreenBrush);
+
 
             Rectangle(hdc, 10, 10, 110, 110); // 사각형 그려줌
 
+            // DeleteObject(hRedPen);
+
+
             EndPaint(hWnd, &ps);
         }
+        break;
+    case WM_KEYDOWN: // 키가 눌렸을 때
+    {
+        switch (wParam)
+        {
+        case VK_UP: // 위쪽 화살표 키, virtual key
+            break;
+        }
+    }
         break;
     case WM_DESTROY:
         PostQuitMessage(0);
