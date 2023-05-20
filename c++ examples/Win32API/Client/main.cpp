@@ -44,14 +44,15 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, // 실행된 프로그램이 할
         return FALSE;
     }
 
+    // 단축키 테이블 정보 로딩, 리소스 뷰- 악셀러레이터에 있음
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_CLIENT));
 
     MSG msg;
 
-    // 기본 메시지 루프입니다:
-    while (GetMessage(&msg, nullptr, 0, 0))
+    // 메세지큐에서 메세지가 없으면 메세지 확인될 때까지 대기(종료X)
+    while (GetMessage(&msg, nullptr, 0, 0)) // msg.message == WM_QUIT인 경우 false 반환, 반복문 종료
     {
-        if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+        if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg)) // msg.hwnd - 메세지가 발생한 윈도우
         {
             TranslateMessage(&msg);
             DispatchMessage(&msg);
@@ -76,7 +77,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
     wcex.cbSize = sizeof(WNDCLASSEX);
 
     wcex.style          = CS_HREDRAW | CS_VREDRAW;
-    wcex.lpfnWndProc    = WndProc;
+    wcex.lpfnWndProc    = WndProc; // 윈도우 프로시저
     wcex.cbClsExtra     = 0;
     wcex.cbWndExtra     = 0;
     wcex.hInstance      = hInstance;
@@ -133,7 +134,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
-    switch (message)
+    switch (message) 
     {
     case WM_COMMAND:
         {
@@ -157,13 +158,16 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
             // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
+
+            Rectangle(hdc, 10, 10, 110, 110); // 사각형 그려줌
+
             EndPaint(hWnd, &ps);
         }
         break;
     case WM_DESTROY:
         PostQuitMessage(0);
         break;
-    default:
+    default: // 위에서 걸리지 않은 수많은 메세지들은 디폴트 윈도우 프로시저라는 함수에서 처리하도록
         return DefWindowProc(hWnd, message, wParam, lParam);
     }
     return 0;
