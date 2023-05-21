@@ -132,6 +132,11 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //  WM_DESTROY  - 종료 메시지를 게시하고 반환합니다.
 //
 //
+
+POINT ptObjectPos = { 500,300 }; // 중심 위치
+POINT ptObjectScale = { 100,100 }; // 크기
+
+
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)// 첫번째 매개변수 - 윈도우 아이디
 {
     switch (message) 
@@ -170,7 +175,8 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)/
             SelectObject(hdc, hGreenBrush);
 
 
-            Rectangle(hdc, 10, 10, 110, 110); // 사각형 그려줌
+            Rectangle(hdc, ptObjectPos.x - ptObjectScale.x / 2, ptObjectPos.y - ptObjectScale.y / 2, ptObjectPos.x + ptObjectScale.x / 2, ptObjectPos.y + ptObjectScale.y / 2); // 사각형 그려줌
+            //Rectangle(hdc, 10, 0, 100, 50); // 사각형 그려줌
 
             // DeleteObject(hRedPen);
 
@@ -183,8 +189,28 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)/
         switch (wParam)
         {
         case VK_UP: // 위쪽 화살표 키, virtual key
+            ptObjectPos.y -= 10;
+            InvalidateRect(hWnd, nullptr, true); // 두번째 매개변수를 nullptr로 하면 전체영역에 대해서 실행
+            break; 
+        case VK_LEFT:
+            ptObjectPos.x -= 10;
+            InvalidateRect(hWnd, nullptr, true);
+            break;
+        case VK_RIGHT:
+            ptObjectPos.x += 10;
+            InvalidateRect(hWnd, nullptr, true);
+            break;
+        case VK_DOWN:
+            ptObjectPos.y += 10;
+            InvalidateRect(hWnd, nullptr, true);
             break;
         }
+    }
+        break;
+    case WM_LBUTTONDOWN:
+    {
+        int x = LOWORD(lParam); // LOWORD - x의 값, 32비트 정수의 하위 16비트(2바이트)를 가져옴
+        int y = HIWORD(lParam); // HIWORD - y의 값, 32비트 정수의 상위 16비트를 가져옴
     }
         break;
     case WM_DESTROY:
