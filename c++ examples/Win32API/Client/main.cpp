@@ -49,14 +49,29 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, // 실행된 프로그램이 할
 
     MSG msg;
 
-    // 메세지큐에서 메세지가 없으면 메세지 확인될 때까지 대기(종료X)
-    while (GetMessage(&msg, nullptr, 0, 0)) // msg.message == WM_QUIT인 경우 false 반환, 반복문 종료
+    // GetMessage - 메세지큐에서 메세지가 없으면 메세지 확인될 때까지 대기(종료X)
+    while (true) // (GetMessage일 때) msg.message == WM_QUIT인 경우 false 반환, 반복문 종료
     {
-        if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg)) // msg.hwnd - 메세지가 발생한 윈도우
+        // Peek - 몰래 엿보다
+        //PeekMessage - 메세지 유무와 관계없이 반환, 메세지 없으면 false, 있으면 true
+        if (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
         {
-            TranslateMessage(&msg);
-            DispatchMessage(&msg);
+            if (msg.message == WM_QUIT)
+                break;
+
+
+
+            if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg)) // msg.hwnd - 메세지가 발생한 윈도우
+            {
+                TranslateMessage(&msg);
+                DispatchMessage(&msg);
+            }
         }
+        else  // 메세지 없을 때
+        {
+
+        }
+        
     }
 
     return (int) msg.wParam;
@@ -133,9 +148,21 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //
 //
 
-POINT ptObjectPos = { 500,300 }; // 중심 위치
-POINT ptObjectScale = { 100,100 }; // 크기
+struct ObjInfo
+{
+    POINT ptObjectPos; // 중심 위치
+    POINT ptObjectScale; // 크기
+};
 
+#include <vector>
+using std::vector;
+
+vector<ObjInfo> vecInfo;
+
+POINT ptLT; //좌상단
+POINT ptRB; //우하단
+
+bool lbtDown = false;
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)// 첫번째 매개변수 - 윈도우 아이디
 {
@@ -174,12 +201,21 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)/
             SelectObject(hdc, hRedPen);
             SelectObject(hdc, hGreenBrush);
 
-
-            Rectangle(hdc, ptObjectPos.x - ptObjectScale.x / 2, ptObjectPos.y - ptObjectScale.y / 2, ptObjectPos.x + ptObjectScale.x / 2, ptObjectPos.y + ptObjectScale.y / 2); // 사각형 그려줌
+            if(lbtDown)
+                Rectangle(hdc, ptLT.x,ptLT.y, ptRB.x, ptRB.y); // 사각형 그려줌
             //Rectangle(hdc, 10, 0, 100, 50); // 사각형 그려줌
 
             // DeleteObject(hRedPen);
 
+
+            //vecinfo에 추가된 사각형들도 그려준다.
+            for (int i = 0; i < vecInfo.size(); ++i)
+            {
+                Rectangle(hdc, vecInfo[i].ptObjectPos.x - (vecInfo[i].ptObjectScale.x / 2), 
+                    vecInfo[i].ptObjectPos.y - (vecInfo[i].ptObjectScale.y / 2),
+                    vecInfo[i].ptObjectPos.x + (vecInfo[i].ptObjectScale.x / 2),
+                    vecInfo[i].ptObjectPos.y + (vecInfo[i].ptObjectScale.y / 2));
+            }
 
             EndPaint(hWnd, &ps);
         }
@@ -189,19 +225,19 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)/
         switch (wParam)
         {
         case VK_UP: // 위쪽 화살표 키, virtual key
-            ptObjectPos.y -= 10;
+            //ptObjectPos.y -= 10;
             InvalidateRect(hWnd, nullptr, true); // 두번째 매개변수를 nullptr로 하면 전체영역에 대해서 실행
             break; 
         case VK_LEFT:
-            ptObjectPos.x -= 10;
+            //ptObjectPos.x -= 10;
             InvalidateRect(hWnd, nullptr, true);
             break;
         case VK_RIGHT:
-            ptObjectPos.x += 10;
+           // ptObjectPos.x += 10;
             InvalidateRect(hWnd, nullptr, true);
             break;
         case VK_DOWN:
-            ptObjectPos.y += 10;
+          //  ptObjectPos.y += 10;
             InvalidateRect(hWnd, nullptr, true);
             break;
         }
@@ -209,10 +245,36 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)/
         break;
     case WM_LBUTTONDOWN:
     {
-        int x = LOWORD(lParam); // LOWORD - x의 값, 32비트 정수의 하위 16비트(2바이트)를 가져옴
-        int y = HIWORD(lParam); // HIWORD - y의 값, 32비트 정수의 상위 16비트를 가져옴
+
+        ptLT.x = LOWORD(lParam); // LOWORD - x의 값, 32비트 정수의 하위 16비트(2바이트)를 가져옴
+        ptLT.y = HIWORD(lParam); // HIWORD - y의 값, 32비트 정수의 상위 16비트를 가져옴
+        lbtDown = true;
+
     }
         break;
+    case WM_MOUSEMOVE:
+    {
+        ptRB.x = LOWORD(lParam); // LOWORD - x의 값, 32비트 정수의 하위 16비트(2바이트)를 가져옴
+        ptRB.y = HIWORD(lParam); // HIWORD - y의 값, 32비트 정수의 상위 16비트를 가져옴
+        InvalidateRect(hWnd, nullptr, true);
+
+    }
+    break;
+    case WM_LBUTTONUP:
+    {
+        ObjInfo info = {};
+        info.ptObjectPos.x = (ptLT.x + ptRB.x) / 2;
+        info.ptObjectPos.y = (ptLT.y + ptRB.y) / 2;
+
+        info.ptObjectScale.x = abs(ptLT.x - ptRB.x);
+        info.ptObjectScale.y = abs(ptLT.y - ptRB.y);
+
+        vecInfo.push_back(info);
+        lbtDown = false;
+        InvalidateRect(hWnd, nullptr, true);
+
+    }
+    break;
     case WM_DESTROY:
         PostQuitMessage(0);
         break;
