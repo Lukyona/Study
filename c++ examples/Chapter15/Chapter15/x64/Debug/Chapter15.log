@@ -1,0 +1,17 @@
+﻿  pro6.cpp
+C:\Users\Luko\Documents\Visual Studio 2022\cpp\Chapter15\Chapter15\Queue.h(62,16): warning C4101: 'ex' :참조되지 않은 지역 변수입니다.
+C:\Users\Luko\Documents\Visual Studio 2022\cpp\Chapter15\Chapter15\Queue.h(49,1): message : 클래스 템플릿 멤버 함수 'void Queue<std::string>::enqueue(T)'을(를) 컴파일하는 중입니다.
+          with
+          [
+              T=std::string
+          ]
+C:\Users\Luko\Documents\Visual Studio 2022\cpp\Chapter15\Chapter15\pro6.cpp(31,19): message : 'main'에서 'Queue<std::string>::enqueue'에 대한 첫 번째 참조를 확인하세요.
+C:\Users\Luko\Documents\Visual Studio 2022\cpp\Chapter15\Chapter15\pro6.cpp(27,26): message : 컴파일되는 클래스 템플릿 인스턴스화 'Queue<std::string>'에 대한 참조를 확인하세요.
+C:\Users\Luko\Documents\Visual Studio 2022\cpp\Chapter15\Chapter15\Queue.h(91,16): warning C4101: 'ex' :참조되지 않은 지역 변수입니다.
+C:\Users\Luko\Documents\Visual Studio 2022\cpp\Chapter15\Chapter15\Queue.h(71,1): message : 클래스 템플릿 멤버 함수 'T Queue<T>::dequeue(void)'을(를) 컴파일하는 중입니다.
+          with
+          [
+              T=std::string
+          ]
+C:\Users\Luko\Documents\Visual Studio 2022\cpp\Chapter15\Chapter15\pro6.cpp(29,14): message : 'main'에서 'Queue<std::string>::dequeue'에 대한 첫 번째 참조를 확인하세요.
+  Chapter15.vcxproj -> C:\Users\Luko\Documents\Visual Studio 2022\cpp\Chapter15\x64\Debug\Chapter15.exe
