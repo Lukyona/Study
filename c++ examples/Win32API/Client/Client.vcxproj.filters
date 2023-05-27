@@ -25,6 +25,9 @@
     <Filter Include="Engine\1. Header">
       <UniqueIdentifier>{6e3db691-157c-48bd-939e-6405608eb3de}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\3. Manager">
+      <UniqueIdentifier>{3e0b4a54-f3e0-439e-8a38-7b42e03bfcbf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -42,6 +45,12 @@
     <ClInclude Include="CCore.h">
       <Filter>Engine\2. Core</Filter>
     </ClInclude>
+    <ClInclude Include="define.h">
+      <Filter>Engine\1. Header</Filter>
+    </ClInclude>
+    <ClInclude Include="KeyManager.h">
+      <Filter>Engine\3. Manager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -49,6 +58,9 @@
     </ClCompile>
     <ClCompile Include="CCore.cpp">
       <Filter>Engine\2. Core</Filter>
+    </ClCompile>
+    <ClCompile Include="KeyManager.cpp">
+      <Filter>Engine\3. Manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
