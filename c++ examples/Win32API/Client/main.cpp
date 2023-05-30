@@ -1,8 +1,9 @@
 ﻿// Client.cpp : 애플리케이션에 대한 진입점을 정의합니다.
 //
-
+#include "pch.h"
 #include "framework.h"
 #include "Client.h"
+#include "CCore.h"
 
 #define MAX_LOADSTRING 100
 
@@ -10,6 +11,7 @@
 HINSTANCE hInst;                                // 현재 인스턴스입니다.
 WCHAR szTitle[MAX_LOADSTRING];                  // 제목 표시줄 텍스트입니다.
 WCHAR szWindowClass[MAX_LOADSTRING];            // 기본 창 클래스 이름입니다.
+HWND g_hWnd; // 메인 윈도우 핸들
 
 // 이 코드 모듈에 포함된 함수의 선언을 전달합니다:
 ATOM                MyRegisterClass(HINSTANCE hInstance);
@@ -30,14 +32,6 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, // 실행된 프로그램이 할
 
 
 
-
-
-
-
-
-
-
-
     // TODO: 여기에 코드를 입력합니다.
 
     // 전역 문자열을 초기화합니다.
@@ -53,6 +47,15 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, // 실행된 프로그램이 할
     {
         return FALSE;
     }
+
+    // Core 초기화, 초기화 실패 시 프로그램 종료
+    if (FAILED(CCore::GetInst()->init(g_hWnd, POINT{1280,768})))
+    {
+        MessageBox(nullptr, L"Core 객체 초기화 실패", L"ERROR", MB_OK);
+        return FALSE;
+    }
+
+
 
     // 단축키 테이블 정보 로딩, 리소스 뷰- 악셀러레이터에 있음
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_CLIENT));
@@ -133,16 +136,16 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    // szTitle에 내가 원하는 문자열 넣기도 가능 프로그램의 이름이 바뀜
   /* HWND hWnd = CreateWindowW(szWindowClass, L"hihi", WS_OVERLAPPEDWINDOW,
        CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr);*/
-   HWND hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
+   g_hWnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPEDWINDOW,
       CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, hInstance, nullptr); // hWnd -  윈도우 아이디 값, 윈도우 핸들
 
-   if (!hWnd)
+   if (!g_hWnd)
    {
       return FALSE;
    }
 
-   ShowWindow(hWnd, nCmdShow); // 두번째 매개변수가 false면 안 보임
-   UpdateWindow(hWnd);
+   ShowWindow(g_hWnd, nCmdShow); // 두번째 매개변수가 false면 안 보임
+   UpdateWindow(g_hWnd);
 
    return TRUE;
 }

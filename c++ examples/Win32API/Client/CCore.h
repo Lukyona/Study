@@ -29,11 +29,18 @@
 //    }
 //
 //};
-#include "define.h"
 class CCore
 {
+    SINGLE(CCore);
+
+private:
+    HWND m_hWnd;
+    POINT m_ptResolution;
+
 public:
-   SINGLE(CCore);
+   int init(HWND _hwnd, POINT _ptRes);
+
+   void progress();
 
 private:
     CCore();
