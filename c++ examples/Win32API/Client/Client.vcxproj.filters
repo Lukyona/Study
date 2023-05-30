@@ -28,6 +28,9 @@
     <Filter Include="Engine\3. Manager">
       <UniqueIdentifier>{3e0b4a54-f3e0-439e-8a38-7b42e03bfcbf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\4. Object">
+      <UniqueIdentifier>{5c0d4d73-885e-4645-80d3-dea401ca319f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -54,6 +57,9 @@
     <ClInclude Include="pch.h">
       <Filter>Default\헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="CObject.h">
+      <Filter>Engine\4. Object</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -64,6 +70,9 @@
     </ClCompile>
     <ClCompile Include="KeyManager.cpp">
       <Filter>Engine\3. Manager</Filter>
+    </ClCompile>
+    <ClCompile Include="CObject.cpp">
+      <Filter>Engine\4. Object</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

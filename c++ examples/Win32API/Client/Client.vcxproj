@@ -131,6 +131,7 @@
   <ItemGroup>
     <ClInclude Include="CCore.h" />
     <ClInclude Include="Client.h" />
+    <ClInclude Include="CObject.h" />
     <ClInclude Include="define.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="KeyManager.h" />
@@ -140,6 +141,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CCore.cpp" />
+    <ClCompile Include="CObject.cpp" />
     <ClCompile Include="KeyManager.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>

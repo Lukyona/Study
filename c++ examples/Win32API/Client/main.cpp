@@ -82,7 +82,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance, // 실행된 프로그램이 할
         }
         else  // 메세지 없을 때
         {
-
+            CCore::GetInst()->progress();
         }
         
     }
@@ -161,21 +161,6 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //
 //
 
-struct ObjInfo
-{
-    POINT ptObjectPos; // 중심 위치
-    POINT ptObjectScale; // 크기
-};
-
-#include <vector>
-using std::vector;
-
-vector<ObjInfo> vecInfo;
-
-POINT ptLT; //좌상단
-POINT ptRB; //우하단
-
-bool lbtDown = false;
 
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)// 첫번째 매개변수 - 윈도우 아이디
 {
@@ -202,89 +187,59 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)/
         {
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps); // hdc - (만들어진 Device Context(커널 오브젝트)) 아이디값, h는 핸들을 뜻함
+           
+            //Rectangle(hdc, 0, 668, 1280, 768); 
+           
             // HPEN, HBRUSH 등 다 정수타입 아이디값을 가진 이름만 다른 구조체일 뿐
             // DC의 목적지는 hWnd
             // DC의 펜은 기본펜(검정), 기본브러쉬(하양)
             // 
             // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
 
-            HPEN hRedPen = CreatePen(PS_SOLID, 1, RGB(255, 0, 0));
+            /*HPEN hRedPen = CreatePen(PS_SOLID, 1, RGB(255, 0, 0));
             HBRUSH hGreenBrush = CreateSolidBrush(RGB(0, 255, 0));
 
             SelectObject(hdc, hRedPen);
-            SelectObject(hdc, hGreenBrush);
+            SelectObject(hdc, hGreenBrush);*/
 
-            if(lbtDown)
-                Rectangle(hdc, ptLT.x,ptLT.y, ptRB.x, ptRB.y); // 사각형 그려줌
-            //Rectangle(hdc, 10, 0, 100, 50); // 사각형 그려줌
+            //if(lbtDown)
+           //     Rectangle(hdc, ptLT.x,ptLT.y, ptRB.x, ptRB.y); // 사각형 그려줌
+           
+           //Rectangle(hdc, 10, 0, 100, 50); // 사각형 그려줌
 
             // DeleteObject(hRedPen);
 
 
             //vecinfo에 추가된 사각형들도 그려준다.
-            for (int i = 0; i < vecInfo.size(); ++i)
+           /* for (int i = 0; i < vecInfo.size(); ++i)
             {
                 Rectangle(hdc, vecInfo[i].ptObjectPos.x - (vecInfo[i].ptObjectScale.x / 2), 
                     vecInfo[i].ptObjectPos.y - (vecInfo[i].ptObjectScale.y / 2),
                     vecInfo[i].ptObjectPos.x + (vecInfo[i].ptObjectScale.x / 2),
                     vecInfo[i].ptObjectPos.y + (vecInfo[i].ptObjectScale.y / 2));
-            }
+            }*/
+            
 
             EndPaint(hWnd, &ps);
         }
         break;
     case WM_KEYDOWN: // 키가 눌렸을 때
     {
-        switch (wParam)
-        {
-        case VK_UP: // 위쪽 화살표 키, virtual key
-            //ptObjectPos.y -= 10;
-            InvalidateRect(hWnd, nullptr, true); // 두번째 매개변수를 nullptr로 하면 전체영역에 대해서 실행
-            break; 
-        case VK_LEFT:
-            //ptObjectPos.x -= 10;
-            InvalidateRect(hWnd, nullptr, true);
-            break;
-        case VK_RIGHT:
-           // ptObjectPos.x += 10;
-            InvalidateRect(hWnd, nullptr, true);
-            break;
-        case VK_DOWN:
-          //  ptObjectPos.y += 10;
-            InvalidateRect(hWnd, nullptr, true);
-            break;
-        }
+        
     }
         break;
     case WM_LBUTTONDOWN:
     {
 
-        ptLT.x = LOWORD(lParam); // LOWORD - x의 값, 32비트 정수의 하위 16비트(2바이트)를 가져옴
-        ptLT.y = HIWORD(lParam); // HIWORD - y의 값, 32비트 정수의 상위 16비트를 가져옴
-        lbtDown = true;
-
     }
         break;
     case WM_MOUSEMOVE:
     {
-        ptRB.x = LOWORD(lParam); // LOWORD - x의 값, 32비트 정수의 하위 16비트(2바이트)를 가져옴
-        ptRB.y = HIWORD(lParam); // HIWORD - y의 값, 32비트 정수의 상위 16비트를 가져옴
-        InvalidateRect(hWnd, nullptr, true);
 
     }
     break;
     case WM_LBUTTONUP:
     {
-        ObjInfo info = {};
-        info.ptObjectPos.x = (ptLT.x + ptRB.x) / 2;
-        info.ptObjectPos.y = (ptLT.y + ptRB.y) / 2;
-
-        info.ptObjectScale.x = abs(ptLT.x - ptRB.x);
-        info.ptObjectScale.y = abs(ptLT.y - ptRB.y);
-
-        vecInfo.push_back(info);
-        lbtDown = false;
-        InvalidateRect(hWnd, nullptr, true);
 
     }
     break;
