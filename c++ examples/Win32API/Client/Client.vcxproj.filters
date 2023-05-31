@@ -51,7 +51,7 @@
     <ClInclude Include="define.h">
       <Filter>Engine\1. Header</Filter>
     </ClInclude>
-    <ClInclude Include="KeyManager.h">
+    <ClInclude Include="CKeyMgr.h">
       <Filter>Engine\3. Manager</Filter>
     </ClInclude>
     <ClInclude Include="pch.h">
@@ -59,6 +59,12 @@
     </ClInclude>
     <ClInclude Include="CObject.h">
       <Filter>Engine\4. Object</Filter>
+    </ClInclude>
+    <ClInclude Include="struct.h">
+      <Filter>Engine\1. Header</Filter>
+    </ClInclude>
+    <ClInclude Include="CTimeMgr.h">
+      <Filter>Engine\3. Manager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -68,11 +74,14 @@
     <ClCompile Include="CCore.cpp">
       <Filter>Engine\2. Core</Filter>
     </ClCompile>
-    <ClCompile Include="KeyManager.cpp">
+    <ClCompile Include="CKeyMgr.cpp">
       <Filter>Engine\3. Manager</Filter>
     </ClCompile>
     <ClCompile Include="CObject.cpp">
       <Filter>Engine\4. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="CTimeMgr.cpp">
+      <Filter>Engine\3. Manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

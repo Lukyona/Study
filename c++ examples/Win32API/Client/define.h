@@ -7,5 +7,8 @@
                             {\
                                     static type mgr;\
                                     return &mgr;\
-                            }
+                            }\
+                            private:\
+                            type();\
+                            ~type();
 
