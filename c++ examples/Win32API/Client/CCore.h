@@ -44,6 +44,7 @@ public:
 
    void progress();
 
+   HWND GetMainHwnd() { return m_hWnd; }
 private:
     void update();
     void render();
