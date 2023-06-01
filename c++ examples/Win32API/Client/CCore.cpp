@@ -10,13 +10,17 @@
 
 
 CCore::CCore()
-    :m_hWnd(0), m_ptResolution{}, m_hDC(0)
+    :m_hWnd(0), m_ptResolution{}, m_hDC(0), m_hBit(0), m_memDC(0)
 {
 }
 
 CCore::~CCore()
 {
     ReleaseDC(m_hWnd, m_hDC);
+
+    // CreateComapatibleDC로 만든 건 Delete로 지우기
+    DeleteDC(m_memDC);
+    DeleteObject(m_hBit);
 }
 
 CObject g_obj;
@@ -33,6 +37,15 @@ int CCore::init(HWND _hwnd, POINT _ptRes)
     SetWindowPos(m_hWnd, nullptr, 100, 100, rt.right - rt.left, rt.bottom - rt.top, 0);
 
     m_hDC = GetDC(m_hWnd);
+
+    // 이중 버퍼링 용도의 비트맵과 DC 만들기
+    m_hBit = CreateCompatibleBitmap(m_hDC, m_ptResolution.x, m_ptResolution.y);
+    m_memDC = CreateCompatibleDC(m_hDC);
+
+    HBITMAP hOldBitmap = (HBITMAP)SelectObject(m_memDC, m_hBit);
+    DeleteObject(hOldBitmap);
+
+
     CTimeMgr::GetInst()->init();
     CKeyMgr::GetInst()->init();
 
@@ -74,10 +87,16 @@ void CCore::update()
 
 void CCore::render()
 {
+    //화면 Clear
+    Rectangle(m_memDC, -1,-1, m_ptResolution.x + 1, m_ptResolution.x + 1);
+
     Vec2 vPos = g_obj.GetPos();
     Vec2 vScale = g_obj.GetScale();
 
     // 그리기
-    Rectangle(m_hDC, int(vPos.x - vScale.x / 2.f), int(vPos.y - vScale.y / 2.f),
+    Rectangle(m_memDC, int(vPos.x - vScale.x / 2.f), int(vPos.y - vScale.y / 2.f),
         int(vPos.x + vScale.x / 2.f), int(vPos.y + vScale.y / 2.f));
+
+    //     목적지,                                          전달할 DC, 
+    BitBlt(m_hDC, 0, 0, m_ptResolution.x, m_ptResolution.y, m_memDC, 0, 0, SRCCOPY);
 }
