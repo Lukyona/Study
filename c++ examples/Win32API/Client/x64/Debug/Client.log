@@ -1,6 +1,2 @@
 ﻿  CCore.cpp
-  CKeyMgr.cpp
-  CObject.cpp
-  CTimeMgr.cpp
-  main.cpp
   Client.vcxproj -> C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\x64\Debug\Client.exe

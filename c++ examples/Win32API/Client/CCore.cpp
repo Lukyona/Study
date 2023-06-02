@@ -61,6 +61,7 @@ int CCore::init(HWND _hwnd, POINT _ptRes)
 void CCore::progress()
 {
     CTimeMgr::GetInst()->update();
+    CKeyMgr::GetInst()->update();
 
     update();
 
@@ -72,12 +73,12 @@ void CCore::update()
 {
     Vec2 vPos = g_obj.GetPos();
 
-    if (GetAsyncKeyState(VK_LEFT) & 0x8000) // 비트 연산, 결과값이 true면 지금눌린 거
+    if (CKeyMgr::GetInst()->GetKeyState(KEY::LEFT) == KEY_STATE::HOLD)   
     {
         vPos.x -= 100.f * CTimeMgr::GetInst()->GetfDT();
     }
-
-    if (GetAsyncKeyState(VK_RIGHT) & 0x8000) 
+    
+    if (CKeyMgr::GetInst()->GetKeyState(KEY::RIGHT) == KEY_STATE::HOLD)
     {
         vPos.x += 100.f * CTimeMgr::GetInst()->GetfDT();
 
