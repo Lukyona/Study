@@ -1,5 +1,8 @@
 C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\CCore.cpp;C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\x64\Debug\CCore.obj
 C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\CObject.cpp;C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\x64\Debug\CObject.obj
+C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\CScene.cpp;C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\x64\Debug\CScene.obj
+C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\CSceneMgr.cpp;C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\x64\Debug\CSceneMgr.obj
+C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\CScene_Start.cpp;C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\x64\Debug\CScene_Start.obj
 C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\CTimeMgr.cpp;C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\x64\Debug\CTimeMgr.obj
 C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\CKeyMgr.cpp;C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\x64\Debug\CKeyMgr.obj
 C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\main.cpp;C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\x64\Debug\main.obj

@@ -7,7 +7,7 @@ private:
 
 public:
     CObject();
-    ~CObject();
+    virtual ~CObject();
 
 
     void SetPos(Vec2 _vPos) { m_vPos = _vPos; }
