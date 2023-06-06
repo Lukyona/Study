@@ -24,7 +24,6 @@ CCore::~CCore()
     DeleteObject(m_hBit);
 }
 
-CObject g_obj;
 
 int CCore::init(HWND _hwnd, POINT _ptRes)
 {
@@ -51,8 +50,6 @@ int CCore::init(HWND _hwnd, POINT _ptRes)
     CKeyMgr::GetInst()->init();
     CSceneMgr::GetInst()->init();
 
-    g_obj.SetPos(Vec2((float)(m_ptResolution.x / 2), (float)(m_ptResolution.y /2)));
-    g_obj.SetScale(Vec2( 100, 100 ));
 
     // FAILED(E_FAIL); // = true
     //return E_FAIL; // 음수
@@ -64,42 +61,18 @@ void CCore::progress()
 {
     CTimeMgr::GetInst()->update();
     CKeyMgr::GetInst()->update();
+    CSceneMgr::GetInst()->update();
 
-    update();
 
-    render();
-
-}
-
-void CCore::update()
-{
-    Vec2 vPos = g_obj.GetPos();
-
-    if (CKeyMgr::GetInst()->GetKeyState(KEY::LEFT) == KEY_STATE::HOLD)   
-    {
-        vPos.x -= 100.f * CTimeMgr::GetInst()->GetfDT();
-    }
-    
-    if (CKeyMgr::GetInst()->GetKeyState(KEY::RIGHT) == KEY_STATE::HOLD)
-    {
-        vPos.x += 100.f * CTimeMgr::GetInst()->GetfDT();
-
-    }
-    g_obj.SetPos(vPos);
-}
-
-void CCore::render()
-{
+    // Rendering
     //화면 Clear
-    Rectangle(m_memDC, -1,-1, m_ptResolution.x + 1, m_ptResolution.x + 1);
+    Rectangle(m_memDC, -1, -1, m_ptResolution.x + 1, m_ptResolution.x + 1);
 
-    Vec2 vPos = g_obj.GetPos();
-    Vec2 vScale = g_obj.GetScale();
 
-    // 그리기
-    Rectangle(m_memDC, int(vPos.x - vScale.x / 2.f), int(vPos.y - vScale.y / 2.f),
-        int(vPos.x + vScale.x / 2.f), int(vPos.y + vScale.y / 2.f));
+    CSceneMgr::GetInst()->render(m_memDC);
 
     //     목적지,                                          전달할 DC, 
     BitBlt(m_hDC, 0, 0, m_ptResolution.x, m_ptResolution.y, m_memDC, 0, 0, SRCCOPY);
 }
+
+
