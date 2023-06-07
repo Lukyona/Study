@@ -3,6 +3,8 @@
 class CPlayer :
     public CObject
 {
+private:
+    void CreateMissile();
 
 
 public:
