@@ -11,5 +11,9 @@ using std::vector;
 using std::string;
 using std::wstring;
 
+#include <cassert>
+
 #include "define.h"
 #include "struct.h"
+
+#include <cstdlib>

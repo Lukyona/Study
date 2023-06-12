@@ -4,17 +4,30 @@ class CMissile :
     public CObject
 {
 private:
-    float m_dir; //위아래 방향 구분
+    float m_theta; // 이동 방향
+    int shapeNum = 0;
+    Vec2 m_dir;
 
 public:
 
     virtual void update();
     virtual void render(HDC _dc);
 
-    void SetDir(bool _up) 
+    void SetDir(float _theta) // 각도로 방향 설정
     {
-        if (_up) m_dir = -1;
-        else m_dir = 1;
+        m_theta = _theta;
+    }
+
+    void SetDir(Vec2 _vec) // 좌표로 방향 설정
+    {
+        m_dir = _vec;
+        m_dir.Normalize();
+    }
+
+
+    void SetType(int n)
+    {
+        shapeNum = n;
     }
 
 

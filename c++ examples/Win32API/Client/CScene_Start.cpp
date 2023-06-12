@@ -23,16 +23,34 @@ void CScene_Start::Enter()
 
 
     // 몬스터 추가
-    int monCount = 16;
-    float moveDist = 50.f;
-    float objScale = 50.f;
+    int monCount = 8;
+    float moveDist; // = 50.f;
+    float objScale; // = 50.f;
     Vec2 vResolution = CCore::GetInst()->GetResolution();
-    float term = (vResolution.x - ((moveDist + objScale/2.f) * 2)) / (float)(monCount - 1);
+    float term; //= (vResolution.x - ((moveDist + objScale / 2.f) * 2)) / (float)(monCount - 1);
 
     CMonster* monObj = nullptr;
     for (int i = 0; i < monCount; ++i)
     {
         monObj = new CMonster;
+
+        srand(i);
+
+        bool isVertical = rand() % 2;
+        monObj->isMoveVertical(isVertical);
+
+        moveDist = (rand() % 50) + 5;
+        objScale = (rand() % 50) + 20;
+
+        if (isVertical)
+        {
+            term = (vResolution.y - ((moveDist + objScale / 2.f) * 2)) / (float)(monCount - 1);
+        }
+        else
+        {
+            term = (vResolution.x - ((moveDist + objScale / 2.f) * 2)) / (float)(monCount - 1);
+        }
+        
         monObj->SetPos(Vec2((moveDist + objScale/2.f) + (float)(i * term), 50.f));
         monObj->SetScale(Vec2(objScale, objScale));
         monObj->SetCenterPos(monObj->GetPos());

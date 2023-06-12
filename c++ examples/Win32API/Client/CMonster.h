@@ -9,10 +9,15 @@ private:
     float m_speed;
     float m_maxDistance;
 
-    int m_dir; // -1 왼쪽, 1 오른쪽
+    int m_dir; // -1 왼쪽(위쪽), 1 오른쪽(아래쪽)
+
+    bool isVertical = false; // 세로로 움직일 거면 true
 
 public:
     virtual void update();
+
+    void CreateMissile();
+
 
 public:
     CMonster();
@@ -23,5 +28,8 @@ public:
 
     void SetCenterPos(Vec2 _pos) { m_centerPos = _pos; }
     void SetMaxDistance(float _f) { m_maxDistance = _f; }
+
+    void isMoveVertical(bool b) { isVertical = b; }
+
 };
 

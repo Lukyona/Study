@@ -48,7 +48,8 @@ void CPlayer::CreateMissile()
 
     missile->SetPos(missilePos);
     missile->SetScale(Vec2(25.f, 25.f));
-    missile->SetDir(true); // 플레이어의 미사일은 위로 나가야함
+    missile->SetDir(Vec2( - 1.f, -7.f)); // 플레이어의 미사일 방향
+    missile->SetType(1);
 
     CScene* curScene = CSceneMgr::GetInst()->GetCurScene();
     curScene->AddObject(missile, GROUP_TYPE::DEFAULT);
