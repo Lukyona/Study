@@ -4,6 +4,8 @@
 #include "CPlayer.h"
 #include "CMonster.h"
 #include "CCore.h"
+#include "CPathMgr.h"
+#include "CTexture.h"
 
 CScene_Start::CScene_Start()
 {
@@ -15,6 +17,17 @@ CScene_Start::~CScene_Start()
 
 void CScene_Start::Enter()
 {
+    // 텍스처 로딩
+    /*CTexture* tex = new CTexture;
+    wstring filePath = CPathMgr::GetInst()->GetContentPath();
+    filePath += L"texture\\ ~~.bmp";
+    tex->Load(filePath);*/
+
+    //delete tex;
+
+
+
+
     // 플레이어 추가
     CObject* obj = new CPlayer;
     obj->SetPos(Vec2(640.f, 584.f));

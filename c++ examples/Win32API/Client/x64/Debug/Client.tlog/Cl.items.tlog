@@ -2,10 +2,14 @@ C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\CCore.cpp;C:\User
 C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\CMissile.cpp;C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\x64\Debug\CMissile.obj
 C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\CMonster.cpp;C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\x64\Debug\CMonster.obj
 C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\CObject.cpp;C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\x64\Debug\CObject.obj
+C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\CPathMgr.cpp;C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\x64\Debug\CPathMgr.obj
 C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\CPlayer.cpp;C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\x64\Debug\CPlayer.obj
+C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\CRes.cpp;C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\x64\Debug\CRes.obj
 C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\CScene.cpp;C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\x64\Debug\CScene.obj
 C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\CSceneMgr.cpp;C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\x64\Debug\CSceneMgr.obj
 C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\CScene_Start.cpp;C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\x64\Debug\CScene_Start.obj
+C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\CSound.cpp;C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\x64\Debug\CSound.obj
+C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\CTexture.cpp;C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\x64\Debug\CTexture.obj
 C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\CTimeMgr.cpp;C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\x64\Debug\CTimeMgr.obj
 C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\CKeyMgr.cpp;C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\x64\Debug\CKeyMgr.obj
 C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\main.cpp;C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\x64\Debug\main.obj

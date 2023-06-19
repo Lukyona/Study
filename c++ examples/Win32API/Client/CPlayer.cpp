@@ -41,16 +41,22 @@ void CPlayer::update()
 
 void CPlayer::CreateMissile()
 {
-    Vec2 missilePos = GetPos();
-    missilePos.y -= GetScale().y / 2.f; // 미사일 나올 위치
+    for (int i = 1; i < 4; ++i)
+    {
+        Vec2 missilePos = GetPos();
+        missilePos.x -= GetScale().x;
+        missilePos.x += ((float)i * 50.f);
+        missilePos.y -= GetScale().y / 2.f; // 미사일 나올 위치
 
-    CMissile* missile = new CMissile;
+        CMissile* missile = new CMissile;
 
-    missile->SetPos(missilePos);
-    missile->SetScale(Vec2(25.f, 25.f));
-    missile->SetDir(Vec2( - 1.f, -7.f)); // 플레이어의 미사일 방향
-    missile->SetType(1);
+        missile->SetPos(missilePos);
+        missile->SetScale(Vec2(25.f, 25.f));
+        missile->SetDir((PI / 4) * float(i)); // 플레이어의 미사일 방향
+        missile->SetShape(1);
 
-    CScene* curScene = CSceneMgr::GetInst()->GetCurScene();
-    curScene->AddObject(missile, GROUP_TYPE::DEFAULT);
+        CScene* curScene = CSceneMgr::GetInst()->GetCurScene();
+        curScene->AddObject(missile, GROUP_TYPE::DEFAULT);
+    }
+    
 }

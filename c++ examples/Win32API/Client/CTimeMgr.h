@@ -17,7 +17,7 @@ private:
 public:
     void init();
     void update();
-
+    void render();
 
     double GetDT() { return m_DT; }
     float GetfDT() { return (float)m_DT; }

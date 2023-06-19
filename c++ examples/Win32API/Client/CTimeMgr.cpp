@@ -31,6 +31,10 @@ void CTimeMgr::update()
 
     m_preCount = m_curCount;
 
+}
+
+void CTimeMgr::render()
+{
     ++m_callCount;
     m_acc += m_DT; // DT ´©Àû
 

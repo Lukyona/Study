@@ -4,6 +4,7 @@
 #include "CTimeMgr.h"
 #include "CKeyMgr.h"
 #include "CSceneMgr.h"
+#include "CPathMgr.h"
 
 
 //CCore* CCore::pInst = nullptr;
@@ -45,7 +46,8 @@ int CCore::init(HWND _hwnd, POINT _ptRes)
     HBITMAP hOldBitmap = (HBITMAP)SelectObject(m_memDC, m_hBit);
     DeleteObject(hOldBitmap);
 
-
+    // 매니저들 초기화
+    CPathMgr::GetInst()->init();
     CTimeMgr::GetInst()->init();
     CKeyMgr::GetInst()->init();
     CSceneMgr::GetInst()->init();
@@ -73,6 +75,8 @@ void CCore::progress()
 
     //     목적지,                                          전달할 DC, 
     BitBlt(m_hDC, 0, 0, m_ptResolution.x, m_ptResolution.y, m_memDC, 0, 0, SRCCOPY);
+
+    //CTimeMgr::GetInst()->render();
 }
 
 

@@ -11,14 +11,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Default\소스 파일">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Default\헤더 파일">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
     <Filter Include="Engine\2. Core">
       <UniqueIdentifier>{fdb556cd-97c4-410d-8d22-c46b3e631c44}</UniqueIdentifier>
     </Filter>
@@ -40,20 +32,17 @@
     <Filter Include="Engine\5. Scene\Scene_Tool">
       <UniqueIdentifier>{1c1bb126-cafa-4a01-a6d6-fef089510777}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\6. Resource">
+      <UniqueIdentifier>{aea3ee72-fb25-439b-882c-4259c47240e2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\6. Resource\Texture">
+      <UniqueIdentifier>{47a0b352-3e8c-4d62-868e-4b1e8da6b512}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\6. Resource\Sound">
+      <UniqueIdentifier>{fd96854c-1dc0-4054-abb3-7ac9005d9003}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h">
-      <Filter>Default\헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
-      <Filter>Default\헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>Default\헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Client.h">
-      <Filter>Default\헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="CCore.h">
       <Filter>Engine\2. Core</Filter>
     </ClInclude>
@@ -62,9 +51,6 @@
     </ClInclude>
     <ClInclude Include="CKeyMgr.h">
       <Filter>Engine\3. Manager</Filter>
-    </ClInclude>
-    <ClInclude Include="pch.h">
-      <Filter>Default\헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="CObject.h">
       <Filter>Engine\4. Object</Filter>
@@ -93,11 +79,33 @@
     <ClInclude Include="CMissile.h">
       <Filter>Engine\4. Object</Filter>
     </ClInclude>
+    <ClInclude Include="CRes.h">
+      <Filter>Engine\6. Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="CTexture.h">
+      <Filter>Engine\6. Resource\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="Client.h">
+      <Filter>Default</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>Default</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>Default</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>Default</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Default</Filter>
+    </ClInclude>
+    <ClInclude Include="CSound.h">
+      <Filter>Engine\6. Resource\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="CPathMgr.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Default\소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="CCore.cpp">
       <Filter>Engine\2. Core</Filter>
     </ClCompile>
@@ -127,6 +135,21 @@
     </ClCompile>
     <ClCompile Include="CMonster.cpp">
       <Filter>Engine\4. Object</Filter>
+    </ClCompile>
+    <ClCompile Include="CRes.cpp">
+      <Filter>Engine\6. Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="CTexture.cpp">
+      <Filter>Engine\6. Resource\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Default</Filter>
+    </ClCompile>
+    <ClCompile Include="CSound.cpp">
+      <Filter>Engine\6. Resource\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="CPathMgr.cpp">
+      <Filter>Engine\3. Manager</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

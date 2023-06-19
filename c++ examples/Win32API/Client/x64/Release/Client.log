@@ -1,0 +1,7 @@
+﻿  CPathMgr.cpp
+C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Client\CPathMgr.cpp(20,13): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  코드를 생성하고 있습니다.
+  Previous IPDB and IOBJ mismatch, fall back to full compilation.
+  All 251 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  코드를 생성했습니다.
+  Client.vcxproj -> C:\Users\Luko\Documents\Visual Studio 2022\cpp\Win32API\Output\bin\Client.exe

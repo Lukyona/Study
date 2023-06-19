@@ -66,7 +66,7 @@ void CMonster::CreateMissile()
     missile->SetPos(missilePos);
     missile->SetScale(Vec2(10.f, 20.f));
     missile->SetDir(false); // 적의 미사일은 아래로 나가야함
-    missile->SetType(2);
+    missile->SetShape(2);
 
     CScene* curScene = CSceneMgr::GetInst()->GetCurScene();
     curScene->AddObject(missile, GROUP_TYPE::DEFAULT);

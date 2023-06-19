@@ -3,7 +3,7 @@
 #include "CTimeMgr.h"
 
 CMissile::CMissile()
-    :m_theta(45.f), m_dir(Vec2(1.f, 1.f))
+    :m_theta(0.f), m_dir(Vec2(1.f, 1.f))
 {
     m_dir.Normalize();
 }
@@ -16,11 +16,16 @@ void CMissile::update()
 {
     Vec2 vPos = GetPos();
 
-    /*vPos.x += 400.f * fDT * cosf(m_theta);
-    vPos.y -= 400.f * fDT * sinf(m_theta);*/
-
-    vPos.x += 400.f * fDT * m_dir.x;
-    vPos.y += 400.f * fDT * m_dir.y; // 위로 가려면 y 음수여야 함
+    if (typeNum == 1)
+    {
+        vPos.x += 400.f * fDT * cosf(m_theta);
+        vPos.y -= 400.f * fDT * sinf(m_theta);
+    }
+    else if(typeNum == 2)
+    {
+        vPos.x += 400.f * fDT * m_dir.x;
+        vPos.y += 400.f * fDT * m_dir.y; // 위로 가려면 Y 음수여야 함
+    }
 
     SetPos(vPos);
 }
