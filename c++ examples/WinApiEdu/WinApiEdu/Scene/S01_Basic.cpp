@@ -4,7 +4,7 @@
 
 S01_Basic::S01_Basic()
 {
-    SetActive(true);
+    //SetActive(true);
 }
 
 S01_Basic::~S01_Basic()

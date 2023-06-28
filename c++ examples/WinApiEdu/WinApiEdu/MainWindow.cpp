@@ -3,6 +3,23 @@
 #include <algorithm>
 #include "Graphic2D.h"
 
+
+
+// GdiPlus
+// *.png 파일을 사용하기 위해
+//  1. include
+//  #include  <ole2.h>
+//  #include   <gdiplus.h>
+//  2. library include
+//  #pragma  comment(lib,"Gdiplus.lib")
+//  using namespace  Gdiplus;
+//  3. Window Create된후  --> StartUp
+//
+//  4. Widow 종료될때 --> Shown
+
+static ULONG_PTR gdiplusToken = NULL;
+
+
 MainWindow::MainWindow()
 {
 
@@ -41,10 +58,17 @@ void MainWindow::CrateInstance(HINSTANCE hInst, int width, int height)
         m_hWnd = CreateWindowW(L"WinAPI", L"임수정", WS_OVERLAPPEDWINDOW,
             10, 10, width, height, nullptr, nullptr, hInst, nullptr);
 
-        m_width = width;
-        m_height = height;
+        RECT rect;
+        GetClientRect(m_hWnd, &rect);
 
-        SCENEMANAGER->GetInstance();
+       int GapX = width - abs(rect.right - rect.left);
+       int GapY = height - abs(rect.bottom - rect.top);
+
+       m_width = width;
+       m_height = height;
+
+       MoveWindow(m_hWnd, 10, 10, width + GapX, height + GapY, true);
+
 
         CreateBufferDC();
 
@@ -52,15 +76,24 @@ void MainWindow::CrateInstance(HINSTANCE hInst, int width, int height)
         UpdateWindow(m_hWnd);
 
     }
-    
+
+    // GDI Plus start
+    GdiplusStartupInput startup;
+    GdiplusStartup(&gdiplusToken, &startup, NULL);
+
+    SCENEMANAGER->GetInstance();
+
 }
 
 LRESULT MainWindow::WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
+    MOUSE->WndProc(message, wParam, lParam);
+
     switch (message)
     {
     
         case WM_DESTROY:
+            GdiplusShutdown(gdiplusToken);
             PostQuitMessage(0);
             break;
         case WM_KEYDOWN:
@@ -150,7 +183,7 @@ void MainWindow::Render()
 
 void MainWindow::Update()
 {
-    MAIN->Update();
+    //MAIN->Update();
 }
 
 void MainWindow::CreateBufferDC()

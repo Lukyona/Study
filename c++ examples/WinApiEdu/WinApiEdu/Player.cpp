@@ -3,7 +3,7 @@
 
 Player::Player()
 {
-    m_sprite = new Sprite(L"./honeyBee.bmp");
+    m_sprite = new Sprite(L"./honeyBee.png");
 }
 
 Player::~Player()
@@ -17,8 +17,8 @@ void Player::Render()
 
 void Player::Update()
 {
-    POINT pt = GetPosition();
-    POINT size = m_sprite->GetSize();
+    Vector2 pt = GetPosition();
+    Vector2 size = m_sprite->GetSize();
 
     size.x *= 0.5f;
     size.y *= 0.5f;
@@ -57,8 +57,8 @@ void Player::Update()
 
 RECT Player::GetRectangle()
 {
-    POINT pt = GetPosition();
-    POINT size = m_sprite->GetSize();
+    Vector2 pt = GetPosition();
+    Vector2 size = m_sprite->GetSize();
 
     RECT rect;
     rect.top = pt.y - (size.y * 0.5f);

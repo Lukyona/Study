@@ -1,6 +1,14 @@
 #include "Graphic2D.h"
 #include "framework.h"
 
+Graphic2D::Graphic2D()
+{
+}
+
+Graphic2D::~Graphic2D()
+{
+}
+
 void Graphic2D::DrawLine(HDC hdc, POINT start, POINT end, int width, COLORREF rgb)
 {
     HPEN myPen;     // 사용할 펜
@@ -67,10 +75,42 @@ _In_ UINT fuLoad);
     DeleteDC(MemDC);
 }
 
-Graphic2D::Graphic2D()
+void Graphic2D::DrawString(HDC hdc, wstring value, POINT pt, int size, COLORREF rgb)
 {
+    // 1. 폰트 생성
+    HFONT myFont;
+    HFONT oldFont;
+
+    LOGFONT lf;
+    wstring fontName = L"Segoe UI"; //윈10에서 사용되는 폰트
+
+    // 데이터를 다 0으로 세팅, 두 가지 방법
+    //memset(&lf, 0x00, sizeof(LOGFONT));
+    ZeroMemory(&lf, sizeof(LOGFONT));
+
+    lf.lfHeight = size;
+    lf.lfWidth = 0;         // 배율 방식으로 사용
+    lf.lfEscapement = 0;
+    lf.lfOrientation = 0; // 0,1,2,4 -- 세로로 놓을 수 있는
+    lf.lfWeight = 400; // 굵게
+    lf.lfItalic = 0; // 이탤릭체
+    lf.lfUnderline = 0;
+    lf.lfStrikeOut = 0;
+    lf.lfCharSet = HANGUL_CHARSET;
+  
+    wcscpy_s(lf.lfFaceName, fontName.c_str());
+
+    myFont = CreateFontIndirect(&lf);
+    oldFont = (HFONT)SelectObject(hdc, myFont);
+    
+    SetTextColor(hdc, rgb);
+    SetBkMode(hdc, TRANSPARENT);
+
+
+    TextOut(hdc, pt.x, pt.y, value.c_str(), value.length());
+
+    SelectObject(hdc, oldFont);
+    DeleteObject(myFont);
 }
 
-Graphic2D::~Graphic2D()
-{
-}
+

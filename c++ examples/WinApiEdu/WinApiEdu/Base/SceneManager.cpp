@@ -1,14 +1,13 @@
 #include "framework.h"
-
 #include "SceneManager.h"
-
 #include "Scene/S01_Basic.h"
 #include "Scene/S02_Bee.h"
+#include "Scene/S01_Momodora.h"
 
 SceneManager::SceneManager()
 {
 
-    Scene* pScene = new S02_Bee();
+    Scene* pScene = new S01_Momodora();
     pScene->SetActive(true);
     m_scenes.push_back(pScene);
     
@@ -30,10 +29,13 @@ SceneManager::~SceneManager()
 
 void SceneManager::Update()
 {
+    CAMERA->Update();
+
     for (UINT i = 0; i < m_scenes.size(); i++)
     {
         if (m_scenes[i]->isActive())
         {
+            m_curScene = m_scenes[i];
             m_scenes[i]->Update();
         }
     }
@@ -46,6 +48,7 @@ void SceneManager::Render()
     {
         if (m_scenes[i]->isActive())
         {
+            m_curScene = m_scenes[i];
             m_scenes[i]->Render();
         }
     }
@@ -66,7 +69,6 @@ Scene* SceneManager::GetScene(string name)
 
     return Value;
 }
-
 
 void SceneManager::ThreadStart()
 {

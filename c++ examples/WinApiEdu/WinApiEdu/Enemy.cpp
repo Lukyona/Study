@@ -3,7 +3,7 @@
 
 Enemy::Enemy()
 {
-    m_sprite = new Sprite(L"./honeyCup.bmp");
+    m_sprite = new Sprite(L"./honeyCup.png");
 
 }
 
@@ -18,41 +18,48 @@ void Enemy::Render()
 
 void Enemy::Update()
 {
-    POINT pt1 = m_player->GetPosition();
-    POINT pt2 = GetPosition();
+    Vector2 pt1 = m_player->GetPosition();
+    Vector2 pt2 = GetPosition();
 
     //벌과 꿀단지 사이의 거리
     float dist = (pt1.x - pt2.x) * (pt1.x - pt2.x) + (pt1.y - pt2.y) * (pt1.y - pt2.y);
     dist = sqrt(dist);
-    
+
     if (dist <= 300.f) // 거리가 300 이하면, 플레이어의 방향을 향해 일정한 스피드로 이동해야 함
     {
-        POINT position = pt2;
+        Vector2 pt = pt1 - pt2; // 벡터, 방향 구하기
+        Vector2 normal = pt.GetNormalized();
 
-        if (abs(pt1.y - pt2.y) >= 50)
-        {
-            if (pt2.y <= pt1.y)
-            {
-                position.y += 5 * 2;
-            }
-            else
-            {
-                position.y -= 5 * 2;
+        Vector2 position = GetPosition();
 
-            }
+        position += (normal * 3.f);
 
-        }
-        else
-        {
-            if (pt2.x <= pt1.x)
-            {
-                position.x += 5 * 2;
-            }
-            else
-            {
-                position.x -= 5 * 2;
-            }
-        }
+
+        //Vector2 position = pt2;
+
+        //if (abs(pt1.y - pt2.y) >= 50)
+        //{
+        //    if (pt2.y <= pt1.y)
+        //    {
+        //        position.y += 5 * 2;
+        //    }
+        //    else
+        //    {
+        //        position.y -= 5 * 2;
+        //    }
+
+        //}
+        //else
+        //{
+        //    if (pt2.x <= pt1.x)
+        //    {
+        //        position.x += 5 * 2;
+        //    }
+        //    else
+        //    {
+        //        position.x -= 5 * 2;
+        //    }
+        //}
 
         SetPosition(position);
 
@@ -60,8 +67,8 @@ void Enemy::Update()
         if (dist <= 50)
         {
             MessageBox(NULL, L"잡혔다!", L"Game", MB_OK);
-            m_player->SetPosition(POINT{ 100,100 });
-            SetPosition(POINT{ 700,500 });
+            m_player->SetPosition(Vector2{ 100,100 });
+            SetPosition(Vector2{ 700,500 });
         }
 
     }
@@ -78,8 +85,8 @@ void Enemy::Update()
 
 RECT Enemy::GetRectangle()
 {
-    POINT pt = GetPosition();
-    POINT size = m_sprite->GetSize();
+    Vector2 pt = GetPosition();
+    Vector2 size = m_sprite->GetSize();
 
     RECT rect;
     rect.top = pt.y - (size.y * 0.5f);

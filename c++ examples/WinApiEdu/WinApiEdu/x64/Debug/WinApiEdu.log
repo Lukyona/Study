@@ -1,7 +1,4 @@
-﻿  Enemy.cpp
-C:\Users\Luko\Documents\Visual Studio 2022\cpp\WinApiEdu\WinApiEdu\Enemy.cpp(25,16): warning C4244: '초기화 중': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\Luko\Documents\Visual Studio 2022\cpp\WinApiEdu\WinApiEdu\Enemy.cpp(85,21): warning C4244: '=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\Luko\Documents\Visual Studio 2022\cpp\WinApiEdu\WinApiEdu\Enemy.cpp(86,24): warning C4244: '=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\Luko\Documents\Visual Studio 2022\cpp\WinApiEdu\WinApiEdu\Enemy.cpp(87,22): warning C4244: '=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-C:\Users\Luko\Documents\Visual Studio 2022\cpp\WinApiEdu\WinApiEdu\Enemy.cpp(88,23): warning C4244: '=': 'float'에서 'LONG'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+﻿  S01_Momodora.cpp
+C:\Users\Luko\Documents\Visual Studio 2022\cpp\WinApiEdu\WinApiEdu\Vector2.h(12,12): warning C4244: '초기화 중': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\Users\Luko\Documents\Visual Studio 2022\cpp\WinApiEdu\WinApiEdu\Vector2.h(12,24): warning C4244: '초기화 중': 'LONG'에서 'float'(으)로 변환하면서 데이터가 손실될 수 있습니다.
   WinApiEdu.vcxproj -> C:\Users\Luko\Documents\Visual Studio 2022\cpp\WinApiEdu\x64\Debug\WinApiEdu.exe

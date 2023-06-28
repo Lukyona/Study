@@ -17,5 +17,7 @@ public:
 
     class Player* m_player = nullptr;
     class Enemy* m_enemy = nullptr;
+    class Sprite* m_background = nullptr;
+    class Animation* m_anim = nullptr;
 };
 

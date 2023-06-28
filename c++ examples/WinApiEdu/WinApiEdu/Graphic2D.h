@@ -9,6 +9,8 @@ public:
     static void DrawRectangle(HDC hdc, int x, int y, int width, int height, COLORREF rgb);
     static void DrawBitmap(HDC hdc, POINT pos, wstring imgFile);
 
+    static void DrawString(HDC hdc, wstring value, POINT pt, int size, COLORREF rgb);
+
     Graphic2D();
     ~Graphic2D();
 };

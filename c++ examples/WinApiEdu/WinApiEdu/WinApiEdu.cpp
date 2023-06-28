@@ -20,7 +20,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 {
 
     MAIN->GetInstance();
-    MAIN->CrateInstance(hInstance, 1000, 800);
+    MAIN->CrateInstance(hInstance, 1200, 800);
 
     HACCEL hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_WINAPIEDU));
 
@@ -51,8 +51,9 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
         }
         else
         {
-            Sleep(5);
-
+            TIMEMANAGER->Update(120.f);
+            MOUSE->Update();
+            MAIN->Update();
             MAIN->Render();
         }
     }

@@ -1,6 +1,10 @@
 #pragma once
 #define OBJECTMANAGER ObjectManager::GetInstance() 
 
+
+
+
+
 class ObjectManager
 {
 private:
@@ -23,5 +27,22 @@ public:
     void SetPosition(string name, POINT pos);
 
     void Update(string name);
+    void Render(string name);
 };
 
+// 추상화 팩토리 pattern
+
+template <typename T>
+class ObjectFactory {
+public:
+    static GameObject* Create(string name)
+    {
+        GameObject* obj = OBJECTMANAGER->FindObject(name);
+        if (obj != NULL)
+            return obj;
+
+        obj = new T;
+        OBJECTMANAGER->AddObject(name, obj);
+        return obj;
+    }
+};

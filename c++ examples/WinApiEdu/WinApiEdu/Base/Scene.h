@@ -13,7 +13,7 @@ public:
     virtual void ChangeScene() = 0; // 씬 변경 시 초기화
 
     void SetActive(bool val) { m_active = val; };
-    void SetName(string name) { m_nextSceneName = name; };
+    void SetName(string name) { m_sceneName = name; };
     void SetNextName(string name) { m_nextSceneName = name; };
     void SetReset(bool val) { m_reset = val; };
 

@@ -52,6 +52,19 @@ void ObjectManager::Update(string name)
     }
     else
     {
+        pObject->Update();
+    }
+}
+
+void ObjectManager::Render(string name)
+{
+        GameObject* pObject = FindObject(name);
+    if (!pObject)
+    {
+        return;
+    }
+    else
+    {
         pObject->Render();
     }
 }

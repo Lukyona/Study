@@ -28,10 +28,39 @@
 #include <mutex>
 using namespace std;
 
+// GDIPlus
+#include <ole2.h>
+#include <gdiplus.h>
+using namespace Gdiplus;
+
+#pragma comment(lib,"Gdiplus.lib")
+#pragma comment(lib,"msimg32.lib")
+
+
+
+#define  SAFE_DELETE(p)  { if(p) { delete (p); (p) =NULL;}
+
+#define DCAST dynamic_cast
+
 //사용자 정의
+#include "Vector2.h"
+#include "Base/Matrix4x4.h"
+#include "System/GameTime.h"
+#include "System/Mouse.h"
+#include "System/Keyboard.h"
+
+#include "Collider/Collider.h"
+#include "Collider/Line.h"
+#include "Collider/Collision.h"
+
+#include "Base/GameObject.h"
+#include "Base/ObjectManager.h"
+#include "Render/Camera.h"
+
 #include "MainWindow.h"
 #include "Base/Scene.h"
 #include "Base/SceneManager.h"
-#include "Base/GameObject.h"
-#include "Base/ObjectManager.h"
-#include "Sprite.h"
+#include "Render/SRVMgr.h"
+#include "Render/Sprite.h"
+
+
